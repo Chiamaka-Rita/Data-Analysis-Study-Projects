@@ -2,13 +2,13 @@
 This study project focuses on the analysis of the maven marketing campaign results using excel as the analytic tool. 
 
 ### Introduction
-Data driven decision is very paramount to the growth of any organization. Hence, every data at our disposal has to be critically analyzed to gather insights and arrive at conclusions that are in line with the company’s goals and missions. Now, the key question is how is the data which is readily available been utilized to solve existing problems or used to boost a company’s revenue and marketing strategies.
+Data driven decision is very paramount to the growth of any organization. Hence, every data at our disposal has to be critically analyzed to gather insights and profer solutions that answers business questions. A very critical key question would be...is the available data properly utilized to solve existing problems? and does the insights derived help boost a company’s revenue and marketing strategies?
 
 ### About the data
 The data presented in this analysis is the Maven marketing campaign results. This data set comprises of 2240 rows and 28 columns. The data covers the details of their customers in relation to their personal profiles, product preferences, campaign success/ failures, and the company’s sales channel performances. More details about the data [here](https://mavenanalytics.io/blog/maven-marketing-challenge).
 
 ### Problem Statement
-After having studied the data, I came up with the following business problem. The objective of the analysis is to understand how customers interact with the business, review the performance of marketing strategies, and how these can be improved. Hence the following questions arose
+The objective of the analysis is to understand how customers interact with the business, review the performance of marketing strategies, and how these can be improved. Hence, after having studied the data, I came up with the following business problem;
 a)	Which customers generated the largest revenue
 b)	Which products are performing best
 c)	Which channels are underperforming
@@ -42,5 +42,5 @@ In this project, Excel was utilized for the validation, cleaning, analyzes and v
 
 ![image](https://github.com/Chiamaka-Rita/Data-Analysis-Study-Projects/assets/145937233/2c31e280-73f8-4d5c-96f5-0a723378b842)![image](https://github.com/Chiamaka-Rita/Data-Analysis-Study-Projects/assets/145937233/d3c2af1d-2f81-476a-a3bd-3c4a88512909)
 
-This is a link to a summarized one paged report of the analysis.
+Here is a link to a summarized one paged [report](https://github.com/Chiamaka-Rita/Data-Analysis-Study-Projects/blob/080718f6e5471ebb066ed23e20f97a52a555f9e0/Excel/Report.pdf) of the analysis.
 
