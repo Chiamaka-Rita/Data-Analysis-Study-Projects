@@ -9,10 +9,10 @@ This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of
 
 ### Problem Statement
 The goal of this project is to clean this dataset by making it consistent, correct and free from errors. Upon an initial look into this dataset, I discovered the following inconsistencies below;
-a)	There were lot of special characters within the dataset
-b)	Blank columns
-c)	Inconsistent metrics used
-d)	Unstandardized date
+1.	There were lot of special characters within the dataset
+2.	Blank columns
+3.	Inconsistent metrics used
+4.	Unstandardized date
 
 ### Skills Demonstrated
 The skills demonstrated in this project includes the use of Common Table Expression (CTE), JOINs, (GROUPBY, Data Definition Language (DDL), Data Manipulation Language (DML) CASE statement)
@@ -25,8 +25,8 @@ The dataset was checked for duplicates using the ID before starting the cleaning
 
 ### Contract, Loan date end 
 The contract column contained special characters (~) when indicating the players that are signed up to a club. Also, it included the information of players that were on loan and those that were free. To make meaningful insight from this column, the contract column was split into two: contract start date and contract end date. Also, because the loan end date included the same information as that of the contract. Another column was created contract status to cover up for the players status. This column will make it easier to know players that are signed to a club and those that are not. After the cleaning the datatype type for the column was changed to standardize things
-NB: I tried changing the data type but it didn’t work. Studying casting in PostgreSQL to fix this issue.
-Height, Weight
+
+### Height, Weight
 The metric system was chosen as the option for measurement for the height and weight column to standardize them. For this column the clauses LEFT, RIGHT, SUBSTRING, WILDCARDS was used to extract the necessary object and then a conversion of data was performed. Before this was done, the data was converted to numeric to allow for mathematical operation and then the column name were changed for recognition purposes.
 
 ### Value, Wages, and Releaseclause
@@ -38,3 +38,5 @@ These columns contained special characters which were removed using LEFT and the
 ### Hits
 The hits had K in the rows and lots of blanks, so the blanks were replaced with null because it could be that the data was not available at during data entry time. So, rather than leaving it blank, NULL was used to represent the data.
 
+### Renaming Vague Columns
+Columns with less decriptive names were renamed. Some of such columns includes pot, ova, bov,sm, am etc 
