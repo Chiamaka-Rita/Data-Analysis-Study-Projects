@@ -5,10 +5,10 @@ This project provides details of the steps taken to clean a very dirty dataset. 
 Data can be found everywhere around us that recording these data can be very challenging and different menthods could be employed in collecting the same type of record. Hence, there are bound to be errors sure as spelling error, duplicates, missing data, inconsistencies in metrics etc. So, it is part of the job of anyone working with data (data analyst) to ensure that the dataset is cleaned before beginning any analysis. For the cleaning of this dataset, I will be using SQL within the PostgreSQL database management system.
 
 ### About the data
-This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of 18979 rows and 77 columns. Each of the columns provides details about the personal and physical information of multiple players. More information about the data set here and here is a link to the data dictionary.
+This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of 18979 rows and 77 columns. Each of the columns provides details about the personal and physical information of multiple players. More information about the data set [here](https://www.kaggle.com/datasets/yagunnersya/fifa-21-messy-raw-dataset-for-cleaning-exploring) also [here] is a link to the data dictionary.
 
 ### Problem Statement
-The goal of this project is to clean this dataset by making it consistent, free from errors and correct. Upon an initial look into this dataset, I discovered the following inconsistencies below
+The goal of this project is to clean this dataset by making it consistent, correct and free from errors. Upon an initial look into this dataset, I discovered the following inconsistencies below;
 a)	There were lot of special characters within the dataset
 b)	Blank columns
 c)	Inconsistent metrics used
