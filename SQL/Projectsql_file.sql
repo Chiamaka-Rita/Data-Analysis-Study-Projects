@@ -52,14 +52,14 @@ using functions LEFT, RIGHT, SUBSTRINGS and WILDCARDS. */
 --Update height column to centimeters
 UPDATE fifa
 SET height = CASE 
-				WHEN height LIKE '%''%' THEN ROUND((((LEFT(height, POSITION('' IN height))::numeric * 30.48 ))) + (SUBSTRING(REPLACE(height, '"', ''), 3,2)::numeric * 2.54))
-				ELSE LEFT(height, POSITION('cm' in height)-1)::numeric END
+		WHEN height LIKE '%''%' THEN ROUND((((LEFT(height, POSITION('' IN height))::numeric * 30.48 ))) + (SUBSTRING(REPLACE(height, '"', ''), 3,2)::numeric * 2.54))
+		ELSE LEFT(height, POSITION('cm' in height)-1)::numeric END
 
 --Update weight column to kilograms
 UPDATE fifa
 SET weight = CASE
-				WHEN weight LIKE '%lbs' THEN ROUND((LEFT(weight, POSITION('l' IN weight) -1)::numeric) * 0.453592) 
-				ELSE LEFT(weight, POSITION('k' IN weight) -1)::numeric END 
+		WHEN weight LIKE '%lbs' THEN ROUND((LEFT(weight, POSITION('l' IN weight) -1)::numeric) * 0.453592) 
+		ELSE LEFT(weight, POSITION('k' IN weight) -1)::numeric END 
 
 --Rename column height and weight to indicate their metrics
 ALTER TABLE fifa
@@ -73,7 +73,7 @@ RENAME column weight TO weight_kg;
 ALTER TABLE fifa
 ADD COLUMN positions_count int
 
---The code below counts the number of positions a player can make
+--Counts the number of positions a player can make
 UPDATE fifa2
 SET positions_count = regexp_count(positions, ',') + 1 
 
