@@ -5,20 +5,20 @@ This project provides details of the steps taken to clean a very dirty dataset. 
 Data can be found everywhere around us that recording these data can be very challenging and different menthods could be employed in collecting the same type of record. Hence, there are bound to be errors sure as spelling error, duplicates, missing data, inconsistencies in metrics etc. So, it is part of the job of anyone working with data (data analyst) to ensure that the dataset is cleaned before beginning any analysis. For the cleaning of this dataset, I will be using SQL within the PostgreSQL database management system.
 
 ### About the data
-This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of 18979 rows and 77 columns. Each of the columns provides details about the personal and physical information of multiple players. More information about the data set [here](https://www.kaggle.com/datasets/yagunnersya/fifa-21-messy-raw-dataset-for-cleaning-exploring) also [here] is a link to the data dictionary.
+This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of 18979 rows and 77 columns. Each of the columns provides details about the personal and physical information of multiple players. More information about the data set [here](https://www.kaggle.com/datasets/yagunnersya/fifa-21-messy-raw-dataset-for-cleaning-exploring).
 
 ### Problem Statement
-The goal of this project is to clean this dataset by making it consistent, correct and free from errors. Upon an initial look into this dataset, I discovered the following inconsistencies below;
+The goal of this project is to clean this dataset by making it consistent, correct and free from errors. Upon an initial look into this dataset, I discovered the following inconsistencies;
 1.	There were lot of special characters within the dataset
 2.	Blank columns
 3.	Inconsistent metrics used
 4.	Unstandardized date
 
 ### Skills Demonstrated
-The skills demonstrated in this project includes the use of Common Table Expression (CTE), JOINs, (GROUPBY, Data Definition Language (DDL), Data Manipulation Language (DML) CASE statement)
+The skills demonstrated in this project includes the use of GROUPBY, Data Definition Language (DDL), Data Manipulation Language (DML) and CASE statements.
 
 ### Data transformation
-Excel was used for initial data exploration to get an overall insight on what the data looked like. Upon observation, the club column was filled with lots blanks but with the use of font color and unhiding columns, the data became visible. Also, the issue with line break was resolved by using TRIM, Find and Replace was used to manually remove the line breaks.
+Excel was used for initial data exploration to get an overall insight on what the data looked like. The club column was had lots blanks however, using font color and unhiding the columns helped make the data visible. In addtion to the invisible data, there exists line breaks with the data that made them invisible when imported in postgreSQL database. To resolve this, TRIM together with Find and Replace was used.
 
 ### Duplicates
 The dataset was checked for duplicates using the ID before starting the cleaning process. No duplicates were found.
