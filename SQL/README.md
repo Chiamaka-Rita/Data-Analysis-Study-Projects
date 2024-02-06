@@ -2,7 +2,7 @@
 This project provides details of the steps taken to clean a very dirty dataset. For this project, SQL (postgreSQL) was used as the primary tool for cleaning the dataset.
 
 ## Introduction
-Data can be found everywhere around us that recording these data can be very challenging and different menthods could be employed in collecting the same type of record. Hence, there are bound to be errors sure as spelling error, duplicates, missing data, inconsistencies in metrics etc. So, it is part of the job of anyone working with data (data analyst) to ensure that the dataset is cleaned before beginning any analysis. For the cleaning of this dataset, I will be using SQL within the PostgreSQL database management system.
+Data can be found everywhere around us such that recording these data can be a very challenging process. Different methods and metrics could be utilized when collecting the same type of data thereby leading to errors. Errors found within a dataset could include but not limited to spelling error, duplicates, missing data, inconsistencies in metrics and so forth. Hence, it is the responsibility of anyone working with any type of data to ensure that the dataset is accurate, complete, consistent and trustworthy before beginning any analysis. For the cleaning of this dataset, I will be using SQL within the PostgreSQL database management system.
 
 ### About the data
 This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of 18979 rows and 77 columns. Each of the columns provides details about the personal and physical information of multiple players. More information about the data set [here](https://www.kaggle.com/datasets/yagunnersya/fifa-21-messy-raw-dataset-for-cleaning-exploring).
@@ -11,32 +11,35 @@ This is a fifa21 messy raw dataset gotten from Kaggle. This dataset comprises of
 The goal of this project is to clean this dataset by making it consistent, correct and free from errors. Upon an initial look into this dataset, I discovered the following inconsistencies;
 1.	There were lot of special characters within the dataset
 2.	Blank columns
-3.	Inconsistent metrics used
-4.	Unstandardized date
+3.	Inconsistent use of metrics within some columns
+4.	Mismatched data types
 
 ### Skills Demonstrated
 The skills demonstrated in this project includes the use of GROUPBY, Data Definition Language (DDL), Data Manipulation Language (DML) and CASE statements.
 
 ### Data transformation
-Excel was used for initial data exploration to get an overall insight on what the data looked like. The club column was had lots blanks however, using font color and unhiding the columns helped make the data visible. In addtion to the invisible data, there exists line breaks with the data that made them invisible when imported in postgreSQL database. To resolve this, TRIM together with Find and Replace was used.
+Excel was used for initial data exploration to get an overall insight on what the data looked like. Upon initial observation, the club column was filled with lots blanks. However, with the use of font color and unhiding the columns, the data became visible. In addtion to an invisible data, the club column had line breaks within which made the data within the column not visible when imported into postgreSQL database. To resolve this, TRIM together with Find and Replace was used to fix this issue.
 
 ### Duplicates
-The dataset was checked for duplicates using the ID before starting the cleaning process. No duplicates were found.
+The dataset was checked for duplicates using before starting off with the cleaning process. No duplicates were found.
 
-### Contract, Loan date end 
-The contract column contained special characters (~) when indicating the players that are signed up to a club. Also, it included the information of players that were on loan and those that were free. To make meaningful insight from this column, the contract column was split into two: contract start date and contract end date. Also, because the loan end date included the same information as that of the contract. Another column was created contract status to cover up for the players status. This column will make it easier to know players that are signed to a club and those that are not. After the cleaning the datatype type for the column was changed to standardize things
+### Contract, Loan Date End 
+The contract column contained special characters (~) to indicate the expected duration of players signed to a club. Also, it included the information of players that were on loan and those that were free. To make meaningful insight from this column, the contract column was split into two: contract_start_date and contract_end_date. Also, the loan Date End column included the same information about players on loan as the contract column. Hence, an additional column was created to indicate a player's contract status. This column (contract_status) will make it easier to know players that are signed to a club, those on loan, and free agents. After the cleaning, the datatype type for each of the columns were standardized.
 
 ### Height, Weight
-The metric system was chosen as the option for measurement for the height and weight column to standardize them. For this column the clauses LEFT, RIGHT, SUBSTRING, WILDCARDS was used to extract the necessary object and then a conversion of data was performed. Before this was done, the data was converted to numeric to allow for mathematical operation and then the column name were changed for recognition purposes.
+For the purpose of consistency, the metric system chosen for the height and weight columns were **cm** and **kg** respectively. The SQL statements LEFT, RIGHT, SUBSTRING, POSITION, REPLACE, and WILDCARDS were used to extract the necessary object before the data was converted to numeric to allow for mathematical operation. Subsequently, the columns were renamed to be more descriptive by including the metric type to the column name.
+
+### Positions
+A new column (positions_count) was created to indicate the total number of positions that can be played by each player.
 
 ### Value, Wages, and Releaseclause
-There was inconsistency observed in this column as it can be seen that some rows contained M to represent millions and some contained K to represent thousands. Moreover, this is a money or numeric day type but then this was found to be in varying character type. So for cleaning this, the € symbol was first removed then rows with M was multiplied by 1000000 while rows with K was multiplied by 1000 and the columns were renamed.
+There were inconsistencies in these columns with regards to the represention of the monetary values where thousands were represented with K and millions in M. In addition, the the columns had an inconsistent data type. For consistency and correctness, the € symbol was first removed then rows with M was multiplied by 1000000 while rows with K was multiplied by 1000. Also, the columns were renamed to include the currency type of the players wages.
 
 ### W/F, SM, IR
-These columns contained special characters which were removed using LEFT and then they were casted into integers. The columns data type were also adjusted for consistency
+These columns contained special characters which were removed using LEFT and then the values were casted into the right data type.
 
 ### Hits
-The hits had K in the rows and lots of blanks, so the blanks were replaced with null because it could be that the data was not available at during data entry time. So, rather than leaving it blank, NULL was used to represent the data.
+The hits column had an inconsistent data type, inconsitent represntation of the values where a thousand was represented with K and it included lot of blanks. For this column, the blanks spaces were replaced with NULL, the values were casted to the correct data type and rows with K were converted by multiplying each with a thousand.
 
 ### Renaming Vague Columns
-Columns with less decriptive names were renamed. Some of such columns includes pot, ova, bov,sm, am etc 
+Columns with less decriptive names were renamed. Some of such columns includes pot, ova, bov,sm, am etc.
